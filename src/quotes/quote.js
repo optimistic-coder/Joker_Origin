@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, Image, Stylesheet, TouchableOpacity} from 'react-native';
 import char from '../img/char.jpg';
 import '../../android/app/src/main/assets/fonts/Poppins-Medium.ttf';
+import ImageLoad from 'react-native-image-placeholder';
 export default class quote extends Component {
   static navigationOptions = {
     title: 'wallpapaer',
@@ -13,7 +14,7 @@ export default class quote extends Component {
   render() {
     return (
       <View style={{backgroundColor: '#121212'}}>
-        <Image
+        <ImageLoad
           style={{
             height: 490,
             width: 300,
@@ -23,7 +24,14 @@ export default class quote extends Component {
             borderRadius: 20,
             borderColor: 'white',
           }}
-          source={char}
+          // source={char}
+          borderWidth={0.2}
+          borderRadius={15}
+          loadingStyle={{size: 'large', color: 'blue'}}
+          source={{
+            uri:
+              'https://4.bp.blogspot.com/-lYq2CzKT12k/VVR_atacIWI/AAAAAAABiwk/ZDXJa9dhUh8/s0/Convict_Lake_Autumn_View_uhd.jpg',
+          }}
         />
         <TouchableOpacity
           onPress={() => alert('Boom')}

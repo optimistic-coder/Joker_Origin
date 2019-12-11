@@ -14,6 +14,7 @@ import '../../android/app/src/main/assets/fonts/Poppins-SemiBold.ttf';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {YouTubeStandaloneAndroid} from 'react-native-youtube';
 import joaquin from '../img/wallpaper.jpg';
+import ImageLoad from 'react-native-image-placeholder';
 class Movo extends Component {
   static navigationOptions = {
     title: 'Joker ovies',
@@ -35,13 +36,17 @@ class Movo extends Component {
               backgroundColor: '#212121',
               borderRadius: 10,
             }}>
-            <Image
+            <ImageLoad
               style={{
                 height: 450,
                 width: 375,
-                borderRadius: 10,
               }}
-              source={joaquin}
+              borderRadius={10}
+              loadingStyle={{size: 'large', color: 'blue'}}
+              source={{
+                uri:
+                  'https://4.bp.blogspot.com/-lYq2CzKT12k/VVR_atacIWI/AAAAAAABiwk/ZDXJa9dhUh8/s0/Convict_Lake_Autumn_View_uhd.jpg',
+              }}
             />
             <View style={{flexDirection: 'row', marginTop: 25}}>
               <Text

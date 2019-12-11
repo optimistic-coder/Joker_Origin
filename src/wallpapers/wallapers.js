@@ -3,8 +3,7 @@ import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import Swiper from 'react-native-swiper-animated';
 
 import char from '../img/char.jpg';
-import comic from '../img/comic.jpg';
-
+import ImageLoad from 'react-native-image-placeholder';
 export default class wallapers extends Component {
   static navigationOptions = {
     title: 'Wallpapers',
@@ -27,7 +26,16 @@ export default class wallapers extends Component {
         <TouchableOpacity
           onPress={() => this.props.navigation.navigate('wallpaper')}
           style={styles.slide1}>
-          <Image style={styles.pic} source={comic} />
+          <ImageLoad
+            style={styles.pic}
+            borderRadius={15}
+            borderWidth={0.5}
+            loadingStyle={{size: 'large', color: 'blue'}}
+            source={{
+              uri:
+                'https://4.bp.blogspot.com/-lYq2CzKT12k/VVR_atacIWI/AAAAAAABiwk/ZDXJa9dhUh8/s0/Convict_Lake_Autumn_View_uhd.jpg',
+            }}
+          />
         </TouchableOpacity>
 
         <View style={styles.slide2}>

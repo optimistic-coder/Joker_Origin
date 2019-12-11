@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import joaquin from '../img/joaquin.jpg';
+import ImageLoad from 'react-native-image-placeholder';
 import '../../android/app/src/main/assets/fonts/Poppins-Medium.ttf';
 class mainc extends Component {
   static navigationOptions = {
@@ -27,13 +28,19 @@ class mainc extends Component {
                 backgroundColor: '#212121',
                 borderRadius: 10,
               }}>
-              <Image
+              <ImageLoad
                 style={{
                   height: 200,
                   width: 370,
                   borderRadius: 10,
                 }}
-                source={joaquin}
+                // source={joaquin}
+                borderRadius={10}
+                loadingStyle={{size: 'large', color: 'blue'}}
+                source={{
+                  uri:
+                    'https://4.bp.blogspot.com/-lYq2CzKT12k/VVR_atacIWI/AAAAAAABiwk/ZDXJa9dhUh8/s0/Convict_Lake_Autumn_View_uhd.jpg',
+                }}
               />
               <Text
                 style={{
