@@ -94,17 +94,21 @@ class Home extends Component {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('comics')}>
+              onPress={() => this.props.navigation.navigate('blogs')}>
               <View style={{marginLeft: 35, marginTop: 50}}>
                 <ImageBackground
                   style={{width: 150, height: 200}}
-                  source={comic}>
+                  source={whats}>
                   <LinearGradient
                     colors={['transparent', '#000000']}
-                    style={{marginTop: 147, alignItems: 'center', padding: 15}}>
+                    style={{marginTop: 159, alignItems: 'center', padding: 10}}>
                     <Text
-                      style={{color: 'white', fontFamily: 'Poppins-Medium'}}>
-                      Comic Books
+                      style={{
+                        fontSize: 13,
+                        color: 'white',
+                        fontFamily: 'Poppins-Medium',
+                      }}>
+                      Joker Blogs
                     </Text>
                   </LinearGradient>
                 </ImageBackground>
@@ -113,30 +117,10 @@ class Home extends Component {
           </View>
           {/** ////// */}
 
-          <View style={{flexDirection: 'row'}}>
-            <TouchableOpacity>
-              <View style={{marginLeft: 35, marginTop: 50, marginBottom: 50}}>
-                <ImageBackground
-                  style={{width: 150, height: 200}}
-                  source={whats}>
-                  <LinearGradient
-                    colors={['transparent', '#000000']}
-                    style={{marginTop: 135, alignItems: 'center', padding: 10}}>
-                    <Text
-                      style={{
-                        fontSize: 13,
-                        color: 'white',
-                        fontFamily: 'Poppins-Medium',
-                      }}>
-                      Whats App Stickers
-                    </Text>
-                  </LinearGradient>
-                </ImageBackground>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <View style={{marginLeft: 35, marginTop: 50, marginBottom: 50}}>
+          <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('Movo')}>
+              <View style={{marginTop: 50, marginBottom: 50}}>
                 <ImageBackground
                   style={{width: 150, height: 200}}
                   source={movie}>

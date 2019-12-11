@@ -125,6 +125,7 @@ class mainc extends Component {
                 marginRight: 22,
                 backgroundColor: '#212121',
                 borderRadius: 10,
+                marginBottom: 20,
               }}>
               <Image
                 style={{

@@ -50,6 +50,28 @@ class subc extends Component {
                   fontSize: 16,
                   marginLeft: 5,
                 }}>
+                Name :
+              </Text>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Medium',
+                  color: 'white',
+                  marginTop: 5,
+                  fontSize: 13,
+                  marginRight: 22,
+                  marginLeft: 17,
+                  marginBottom: 7,
+                }}>
+                Joaquin Phoenix
+              </Text>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Medium',
+                  color: 'white',
+                  marginTop: 5,
+                  fontSize: 16,
+                  marginLeft: 5,
+                }}>
                 Description :
               </Text>
               <Text
@@ -145,14 +167,14 @@ class subc extends Component {
                   marginLeft: 17,
                   marginBottom: 7,
                 }}>
-                If you interested watch joaquin phoenix life struggle Press the
-                Button{' '}
+                If you want to watch joaquin phoenix boigraphy Press the Button{' '}
               </Text>
               <View
                 style={{
                   marginTop: 40,
                   marginLeft: 15,
                   marginRight: 15,
+                  marginBottom: 20,
                 }}>
                 <Button
                   title="Press Me"
@@ -168,7 +190,6 @@ class subc extends Component {
                   }}
                 />
               </View>
-              <Text>Joker</Text>
             </View>
           </View>
         </View>

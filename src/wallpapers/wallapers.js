@@ -1,29 +1,6 @@
-// import React from 'react';
-// import Swiper from 'react-native-swiper-animated';
-// import {View, Text, Image} from 'react-native';
-
-// import char from '../img/char.jpg';
-// import comic from '../img/comic.jpg';
-// export default props => {
-//   return (
-//     <View>
-//       <Swiper smoothTransition loop>
-//         <View style={{height: 200, width: 200}}>
-//           <Image style={{height: 200, width: 200}} source={char} />
-//         </View>
-
-//         <View style={{height: 200, width: 200}}>
-//           <Image style={{height: 200, width: 200}} source={comic} />
-//         </View>
-//       </Swiper>
-//     </View>
-//   );
-// };
-
 import React, {Component} from 'react';
 import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import Swiper from 'react-native-swiper-animated';
-import LinearGradient from 'react-native-linear-gradient';
 
 import char from '../img/char.jpg';
 import comic from '../img/comic.jpg';
@@ -78,8 +55,8 @@ const styles = StyleSheet.create({
     width: 300,
   },
   pic: {
-    height: 400,
-    width: 280,
+    height: 500,
+    width: 300,
     borderRadius: 15,
     borderWidth: 0.5,
     borderColor: 'white',

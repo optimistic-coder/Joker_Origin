@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   ScrollView,
+  Image,
 } from 'react-native';
 
 import whats from '../img/whats.jpg';
@@ -22,57 +23,41 @@ export default class quotes extends Component {
     return (
       <ScrollView>
         <View style={{backgroundColor: '#121212'}}>
-          <View>
-            <ImageBackground
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('quote')}>
+            <Image
               style={{
                 width: 330,
                 height: 450,
                 marginLeft: 40,
                 marginTop: 50,
                 marginBottom: 20,
+                borderColor: 'white',
+                borderWidth: 0.2,
+                borderRadius: 15,
               }}
-              source={whats}>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('quote')}
-                style={{backgroundColor: 'green', marginTop: 410}}>
-                <Text
-                  style={{
-                    color: 'white',
-                    textAlign: 'center',
-                    fontSize: 20,
-                    padding: 7,
-                  }}>
-                  View
-                </Text>
-              </TouchableOpacity>
-            </ImageBackground>
-          </View>
+              source={whats}
+            />
+          </TouchableOpacity>
+
           {/**other component */}
-          <View>
-            <ImageBackground
+
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('quote')}>
+            <Image
               style={{
                 width: 330,
                 height: 450,
                 marginLeft: 40,
                 marginTop: 50,
                 marginBottom: 20,
+                borderColor: 'white',
+                borderWidth: 0.2,
+                borderRadius: 15,
               }}
-              source={movie}>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('quote')}
-                style={{backgroundColor: 'green', marginTop: 410}}>
-                <Text
-                  style={{
-                    color: 'white',
-                    textAlign: 'center',
-                    fontSize: 20,
-                    padding: 7,
-                  }}>
-                  View
-                </Text>
-              </TouchableOpacity>
-            </ImageBackground>
-          </View>
+              source={movie}
+            />
+          </TouchableOpacity>
         </View>
       </ScrollView>
     );
