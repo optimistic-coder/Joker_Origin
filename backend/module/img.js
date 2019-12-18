@@ -6,22 +6,43 @@ var upload = multer();
 const wallpaper = require("../schema/wallpaper");
 const passport = require("passport");
 
-router.post(
-  "/upload",
-  upload.single("file"),
-  passport.authenticate("jwt", { session: false }),
 
+
+var multiparty = require("connect-multiparty"),
+multipartyMiddleware = multiparty();
+const AWS = require("aws-sdk");
+const s3 = new AWS.S3({
+  accessKeyId: "AKIAICTB4CZMI4FU45RQ",
+  secretAccessKey: "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"
+});
+router.route("/upload").post(
+  multipartyMiddleware,
   (req, res) => {
-    if (!req.file) {
-      res.status(500);
-      res.send("errors");
+    var file = req.files.file;
+    fs.readFile(file.path, function(err, data) {
+      if(err) {
+        console.log(err)
+      } 
+      var walls = new wallpaper();
+      var url;
+     
+      const params = {
+        Bucket: 'wallpapers71', // pass your bucket name
+       Key: req.files.file.originalFilename, // file will be saved as testBucket/contacts.csv
+        Body: data
     }
-    var walls = new wallpaper();
-
-    walls.img.data = req.file.buffer;
-    walls.img.contenType = req.file.mimetype;
-    walls.save();
-    res.send("Done");
+     s3.upload(params, function(s3Err, data) {
+         if (s3Err) throw s3Err
+          if(data){
+            url=data.Location
+            walls.img.data = url;
+                  walls.save().then(post => {
+                      res.json(post);
+                    });
+           
+          }
+     });
+    });
   }
 );
 router.get("/wallpaper", (req, res) => {

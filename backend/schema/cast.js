@@ -7,11 +7,8 @@ var schema = new Schema({
     born: String,
     shows: String,
     awards: String,
-    video: String
-  },
-  img: {
-    data: Buffer,
-    contenType: String
+    video: String,
+    img:String
   }
 });
 module.exports = CastM = mongoose.model("CastM", schema);

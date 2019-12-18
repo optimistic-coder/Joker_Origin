@@ -9,11 +9,9 @@ var schema = new Schema({
     director: String,
     budget: String,
     music_director: String,
-    video: String
+    video: String,
+    img:String
   },
-  img: {
-    data: Buffer,
-    contenType: String
-  }
+ 
 });
 module.exports = CastM = mongoose.model("movie", schema);
