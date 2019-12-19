@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Button,
+} from 'react-native';
 import Swiper from 'react-native-swiper-animated';
 
 import char from '../img/char.jpg';
@@ -12,7 +19,81 @@ export default class wallapers extends Component {
     },
     headerTintColor: 'white',
   };
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      loading: true,
+    };
+  }
+  componentDidMount() {
+    fetch('https://joker-origin.herokuapp.com/module/img/wallpaper')
+      .then(res => res.json())
+      .then(post =>
+        this.setState({
+          data: post,
+          loading: false,
+        }),
+      )
+      .catch(err => console.log(err));
+  }
   render() {
+    var renderPage = index => {
+      return (
+        <View>
+          <View key={index}>
+            <View style={styles.slide1}>
+              <ImageLoad
+                style={styles.pic}
+                borderRadius={15}
+                borderWidth={0.5}
+                loadingStyle={{size: 'large', color: 'blue'}}
+                source={{
+                  uri: `${this.state.data[index].img.data}`,
+                }}
+              />
+            </View>
+            <TouchableOpacity
+              onPress={() =>
+                this.props.navigation.navigate('wallpaper', {
+                  data: this.state.data[index].img.data,
+                })
+              }
+              style={{
+                backgroundColor: '#00b300',
+                alignItems: 'center',
+                marginLeft: 50,
+                marginRight: 55,
+                marginTop: 205,
+                borderRadius: 15,
+              }}>
+              <Text
+                style={{
+                  color: 'white',
+                  padding: 10,
+                  fontFamily: 'Poppins-Medium',
+                }}>
+                View
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      );
+    };
+    var pages;
+    if (this.state.loading == false) {
+      const pagesCount = this.state.data.length;
+      pages = [...new Array(pagesCount)].map((it, index) => {
+        return renderPage(index);
+      });
+    } else {
+      return (
+        <View>
+          <Text style={{color: 'black'}}>Loading</Text>
+        </View>
+      );
+    }
+
     return (
       <Swiper
         style={{backgroundColor: '#121212'}}
@@ -23,24 +104,7 @@ export default class wallapers extends Component {
         dragDownToBack
         dragY
         showPagination={false}>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('wallpaper')}
-          style={styles.slide1}>
-          <ImageLoad
-            style={styles.pic}
-            borderRadius={15}
-            borderWidth={0.5}
-            loadingStyle={{size: 'large', color: 'blue'}}
-            source={{
-              uri:
-                'https://4.bp.blogspot.com/-lYq2CzKT12k/VVR_atacIWI/AAAAAAABiwk/ZDXJa9dhUh8/s0/Convict_Lake_Autumn_View_uhd.jpg',
-            }}
-          />
-        </TouchableOpacity>
-
-        <View style={styles.slide2}>
-          <Image style={styles.pic} source={char} />
-        </View>
+        {pages}
       </Swiper>
     );
   }
@@ -52,7 +116,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 420,
     width: 300,
-    marginLeft: 50,
+    marginLeft: 55,
+    marginTop: 350,
   },
   slide2: {
     flex: 1,

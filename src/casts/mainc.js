@@ -28,11 +28,7 @@ class mainc extends Component {
       .catch(err => console.log(err));
   }
   render() {
-    // if (this.state.loading == false) {
-    //   this.state.data.map(post => {
-    //     // var img = `data:${post.img.contenType};base64,{post.img.data.data}`;
-    //   });
-    // }
+    
 
     return (
       <View>
