@@ -1,15 +1,8 @@
 import React, {Component} from 'react';
-import {
-  Text,
-  View,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  Button,
-} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import Swiper from 'react-native-swiper-animated';
+import Loadiing from '../Loading';
 
-import char from '../img/char.jpg';
 import ImageLoad from 'react-native-image-placeholder';
 export default class wallapers extends Component {
   static navigationOptions = {
@@ -40,8 +33,8 @@ export default class wallapers extends Component {
   render() {
     var renderPage = index => {
       return (
-        <View>
-          <View key={index}>
+        <View key={index}>
+          <View>
             <View style={styles.slide1}>
               <ImageLoad
                 style={styles.pic}
@@ -89,7 +82,7 @@ export default class wallapers extends Component {
     } else {
       return (
         <View>
-          <Text style={{color: 'black'}}>Loading</Text>
+          <Loadiing />
         </View>
       );
     }

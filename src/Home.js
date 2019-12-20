@@ -12,7 +12,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import wallpaper from './img/wallpaper.jpg';
 import charchters from './img/char.jpg';
 import quotes from './img/quotes.jpg';
-import comic from './img/comic.jpg';
+
 import whats from './img/whats.jpg';
 import movie from './img/movie.jpg';
 import '../android/app/src/main/assets/fonts/Poppins-Bold.ttf';

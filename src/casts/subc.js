@@ -21,6 +21,13 @@ class subc extends Component {
     headerTintColor: 'white',
   };
   render() {
+    // name:post.cast.name,
+    //   img: post.cast.img,
+    //     description: post.cast.description,
+    //       born: post.cast.born,
+    //         shows: post.cast.shows,
+    //           awards: post.cast.awards,
+    //             video: post.cast.video,
     return (
       <ScrollView>
         <View style={{backgroundColor: '#121212'}}>
@@ -43,8 +50,7 @@ class subc extends Component {
               borderRadius={10}
               loadingStyle={{size: 'large', color: 'blue'}}
               source={{
-                uri:
-                  'https://4.bp.blogspot.com/-lYq2CzKT12k/VVR_atacIWI/AAAAAAABiwk/ZDXJa9dhUh8/s0/Convict_Lake_Autumn_View_uhd.jpg',
+                uri: this.props.navigation.getParam('img'),
               }}
             />
             <View>
@@ -68,7 +74,7 @@ class subc extends Component {
                   marginLeft: 17,
                   marginBottom: 7,
                 }}>
-                Joaquin Phoenix
+                {this.props.navigation.getParam('name')}
               </Text>
               <Text
                 style={{
@@ -90,10 +96,7 @@ class subc extends Component {
                   marginLeft: 17,
                   marginBottom: 7,
                 }}>
-                Joaquin Rafael Phoenix is an American actor, producer, and
-                activist, who has received several accolades, including a Grammy
-                Award, a Golden Globe Award, and nominations for three Academy
-                Awards.
+                {this.props.navigation.getParam('description')}
               </Text>
               <Text
                 style={{
@@ -115,7 +118,7 @@ class subc extends Component {
                   marginLeft: 17,
                   marginBottom: 7,
                 }}>
-                28 October 1974 (age 44 years), San Juan, Puerto Rico
+                {this.props.navigation.getParam('born')}
               </Text>
 
               <Text
@@ -138,7 +141,7 @@ class subc extends Component {
                   marginLeft: 17,
                   marginBottom: 7,
                 }}>
-                The Fall Guy, Seven Brides for Seven Brothers
+                {this.props.navigation.getParam('shows')}
               </Text>
 
               <Text
@@ -161,7 +164,7 @@ class subc extends Component {
                   marginLeft: 17,
                   marginBottom: 7,
                 }}>
-                Golden Globe Awards, Grammy Awards
+                {this.props.navigation.getParam('awards')}
               </Text>
               <Text
                 style={{
@@ -173,7 +176,8 @@ class subc extends Component {
                   marginLeft: 17,
                   marginBottom: 7,
                 }}>
-                If you want to watch joaquin phoenix boigraphy Press the Button{' '}
+                If you are interested about this charchter you should watch this
+                Press the Button{' '}
               </Text>
               <View
                 style={{
@@ -187,7 +191,7 @@ class subc extends Component {
                   onPress={() => {
                     YouTubeStandaloneAndroid.playVideo({
                       apiKey: 'AIzaSyCiQQ-uXfl1vDn5fKJdPiTzta1GXxEtxAk', // Your YouTube Developer API Key
-                      videoId: '_f-ltlNFUtw', // YouTube video ID
+                      videoId: `${this.props.navigation.getParam('video')}`, // YouTube video ID
                       autoplay: true, // Autoplay the video
                       startTime: 120, // Starting point of video (in seconds)
                     })

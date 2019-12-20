@@ -7,7 +7,7 @@ import wallpapers from './src/wallpapers/wallapers';
 import wallpaper from './src/wallpapers/wallpaper';
 
 import quotes from './src/quotes/quotes';
-import quote from './src/quotes/quote';
+
 import blogs from './src/joker_blogs/blogs';
 import Movo from './src/movo/Movo';
 const MainNavigator = createStackNavigator({
@@ -18,7 +18,7 @@ const MainNavigator = createStackNavigator({
   wallpaper: {screen: wallpaper},
 
   quotes: {screen: quotes},
-  quote: {screen: quote},
+
   blogs: {screen: blogs},
   Movo: {screen: Movo},
 });

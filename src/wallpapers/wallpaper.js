@@ -4,7 +4,6 @@ import ImageLoad from 'react-native-image-placeholder';
 import '../../android/app/src/main/assets/fonts/Poppins-Medium.ttf';
 import RNFetchBlob from 'react-native-fetch-blob';
 import {PermissionsAndroid} from 'react-native';
-//
 var granted;
 async function requestStoragePermission() {
   try {
@@ -25,7 +24,7 @@ async function requestStoragePermission() {
   }
 }
 requestStoragePermission();
-//
+
 export default class wallpaper extends Component {
   static navigationOptions = {
     title: 'wallpapaer',
@@ -72,8 +71,8 @@ export default class wallpaper extends Component {
         <ImageLoad
           style={{
             height: 490,
-            width: 300,
-            marginLeft: 50,
+            width: 380,
+            marginLeft: 10,
             marginTop: 90,
             borderWidth: 0.5,
             borderRadius: 20,
@@ -92,8 +91,8 @@ export default class wallpaper extends Component {
             style={{
               backgroundColor: '#00b300',
               alignItems: 'center',
-              marginLeft: 50,
-              marginRight: 60,
+              marginLeft: 10,
+              width: 380,
               marginTop: 35,
               borderRadius: 19,
               marginBottom: 300,
@@ -113,8 +112,8 @@ export default class wallpaper extends Component {
             style={{
               backgroundColor: '#00b300',
               alignItems: 'center',
-              marginLeft: 50,
-              marginRight: 60,
+              marginLeft: 10,
+              width: 320,
               marginTop: 35,
               borderRadius: 19,
               marginBottom: 300,
