@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, Image, Stylesheet, TouchableOpacity} from 'react-native';
 import ImageLoad from 'react-native-image-placeholder';
 import '../../android/app/src/main/assets/fonts/Poppins-Medium.ttf';
-import RNFetchBlob from 'react-native-fetch-blob';
+import RNFetchBlob from 'rn-fetch-blob';
 import {PermissionsAndroid} from 'react-native';
 var granted;
 async function requestStoragePermission() {
@@ -113,7 +113,7 @@ export default class wallpaper extends Component {
               backgroundColor: '#00b300',
               alignItems: 'center',
               marginLeft: 10,
-              width: 320,
+              width: 380,
               marginTop: 35,
               borderRadius: 19,
               marginBottom: 300,

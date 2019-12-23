@@ -30,7 +30,6 @@ target 'Joker_origin1' do
 
 
 
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   target 'Joker_origin1Tests' do
     inherit! :search_paths
