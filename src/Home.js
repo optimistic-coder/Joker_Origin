@@ -12,8 +12,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import wallpaper from './img/wallpaper.jpg';
 import charchters from './img/char.jpg';
 import quotes from './img/quotes.jpg';
-
-import whats from './img/whats.jpg';
+import blogs from './img/blogs.jpg';
 import movie from './img/movie.jpg';
 import '../android/app/src/main/assets/fonts/Poppins-Bold.ttf';
 import '../android/app/src/main/assets/fonts/Poppins-Regular.ttf';
@@ -21,7 +20,13 @@ import '../android/app/src/main/assets/fonts/Poppins-Light.ttf';
 import '../android/app/src/main/assets/fonts/Poppins-Medium.ttf';
 
 class Home extends Component {
-  static navigationOptions = {header: null};
+  static navigationOptions = {
+    title: '',
+    headerStyle: {
+      backgroundColor: '#121212',
+    },
+    headerTintColor: 'white',
+  };
   render() {
     return (
       <ScrollView>
@@ -32,14 +37,20 @@ class Home extends Component {
               fontFamily: 'Poppins-Bold',
               fontSize: 20,
               color: 'white',
-              marginTop: 25,
+              marginTop: 5,
             }}>
             Joker Origin
           </Text>
-          <View style={{flexDirection: 'row'}}>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('wallpapers')}>
-              <View style={{marginLeft: 35, marginTop: 50}}>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'row',
+              justifyContent: 'center',
+              marginTop: 30,
+            }}>
+            <View style={styles.box}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('wallpapers')}>
                 <ImageBackground
                   style={{width: 150, height: 200}}
                   source={wallpaper}>
@@ -52,11 +63,11 @@ class Home extends Component {
                     </Text>
                   </LinearGradient>
                 </ImageBackground>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('mainc')}>
-              <View style={{marginLeft: 35, marginTop: 50}}>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.box}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('mainc')}>
                 <ImageBackground
                   style={{width: 150, height: 200}}
                   source={charchters}>
@@ -69,15 +80,21 @@ class Home extends Component {
                     </Text>
                   </LinearGradient>
                 </ImageBackground>
-              </View>
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </View>
           </View>
           {/**Row/////////////////// */}
 
-          <View style={{flexDirection: 'row'}}>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('quotes')}>
-              <View style={{marginLeft: 35, marginTop: 50}}>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'row',
+              justifyContent: 'center',
+              marginTop: 40,
+            }}>
+            <View style={styles.box}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('quotes')}>
                 <ImageBackground
                   style={{width: 150, height: 200}}
                   source={quotes}>
@@ -90,15 +107,15 @@ class Home extends Component {
                     </Text>
                   </LinearGradient>
                 </ImageBackground>
-              </View>
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </View>
 
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('blogs')}>
-              <View style={{marginLeft: 35, marginTop: 50}}>
+            <View style={styles.box}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('blogs')}>
                 <ImageBackground
                   style={{width: 150, height: 200}}
-                  source={whats}>
+                  source={blogs}>
                   <LinearGradient
                     colors={['transparent', '#000000']}
                     style={{marginTop: 159, alignItems: 'center', padding: 10}}>
@@ -112,15 +129,21 @@ class Home extends Component {
                     </Text>
                   </LinearGradient>
                 </ImageBackground>
-              </View>
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </View>
           </View>
           {/** ////// */}
 
-          <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Movo')}>
-              <View style={{marginTop: 50, marginBottom: 50}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'center',
+              marginTop: 40,
+              marginBottom: 20,
+            }}>
+            <View>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('Movo')}>
                 <ImageBackground
                   style={{width: 150, height: 200}}
                   source={movie}>
@@ -133,13 +156,17 @@ class Home extends Component {
                     </Text>
                   </LinearGradient>
                 </ImageBackground>
-              </View>
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </ScrollView>
     );
   }
 }
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  box: {
+    padding: 15,
+  },
+});
 export default Home;

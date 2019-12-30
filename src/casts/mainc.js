@@ -37,77 +37,86 @@ class mainc extends Component {
             {this.state.data.map(post => {
               return (
                 <View key={post._id}>
-                  <View
-                    style={{
-                      backgroundColor: '#121212',
-                    }}>
-                    {/**component start */}
-
-                    <TouchableOpacity
-                      onPress={() =>
-                        this.props.navigation.navigate('subc', {
-                          name: post.cast.name,
-                          img: post.cast.img,
-                          description: post.cast.description,
-                          born: post.cast.born,
-                          shows: post.cast.shows,
-                          awards: post.cast.awards,
-                          video: post.cast.video,
-                        })
-                      }>
+                  <ScrollView>
+                    <View>
                       <View
                         style={{
+                          flex: 1,
                           flexDirection: 'column',
-                          marginLeft: 20,
-                          marginTop: 50,
-                          marginRight: 22,
-                          backgroundColor: '#212121',
-                          borderRadius: 10,
-                          marginBottom: 10,
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          backgroundColor: '#121212',
                         }}>
-                        <ImageLoad
-                          style={{
-                            height: 200,
-                            width: 370,
-                            borderRadius: 10,
-                          }}
-                          // source={joaquin}
-                          borderRadius={10}
-                          loadingStyle={{
-                            size: 'large',
-                            color: 'blue',
-                          }}
-                          source={{
-                            uri: post.cast.img,
-                          }}
-                        />
-                        <Text
-                          style={{
-                            fontFamily: 'Poppins-Medium',
-                            color: 'white',
-                            marginTop: 5,
-                            fontSize: 16,
-                            marginLeft: 5,
-                          }}>
-                          Description :
-                        </Text>
-                        <Text
-                          style={{
-                            fontFamily: 'Poppins-Medium',
-                            color: 'white',
-                            marginTop: 5,
-                            fontSize: 13,
-                            marginRight: 22,
-                            marginLeft: 5,
-                            marginBottom: 7,
-                          }}>
-                          {post.cast.description}
-                        </Text>
-                      </View>
-                    </TouchableOpacity>
+                        {/**component start */}
 
-                    {/**component end */}
-                  </View>
+                        <View>
+                          <TouchableOpacity
+                            onPress={() =>
+                              this.props.navigation.navigate('subc', {
+                                name: post.cast.name,
+                                img: post.cast.img,
+                                description: post.cast.description,
+                                born: post.cast.born,
+                                shows: post.cast.shows,
+                                awards: post.cast.awards,
+                                video: post.cast.video,
+                              })
+                            }>
+                            <View
+                              style={{
+                                flex: 1,
+                                flexDirection: 'column',
+                                width: 320,
+                                backgroundColor: '#212121',
+
+                                marginTop: 50,
+
+                                marginBottom: 25,
+                                borderRadius: 10,
+                              }}>
+                              <View
+                                style={{
+                                  height: 200,
+                                  width: 100,
+                                }}>
+                                <ImageLoad
+                                  style={{
+                                    height: 200,
+                                    width: 320,
+                                    borderRadius: 10,
+                                  }}
+                                  // source={joaquin}
+                                  borderRadius={10}
+                                  loadingStyle={{
+                                    size: 'large',
+                                    color: 'blue',
+                                  }}
+                                  source={{
+                                    uri: post.cast.img,
+                                  }}
+                                />
+                              </View>
+
+                              <View>
+                                <Text
+                                  style={{
+                                    fontFamily: 'Poppins-Medium',
+                                    color: 'white',
+                                    marginTop: 5,
+                                    fontSize: 13,
+                                    marginRight: 22,
+                                    paddingLeft: 10,
+                                    marginBottom: 7,
+                                  }}>
+                                  {post.cast.description}
+                                </Text>
+                              </View>
+                            </View>
+                          </TouchableOpacity>
+                        </View>
+                      </View>
+                    </View>
+                  </ScrollView>
                 </View>
               );
             })}

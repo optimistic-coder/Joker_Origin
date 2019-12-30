@@ -36,32 +36,44 @@ export default class quotes extends Component {
               {this.state.data.map(post => {
                 var url = post.img.data;
                 return (
-                  <View key={post._id}>
-                    <TouchableOpacity
-                      onPress={() =>
-                        this.props.navigation.navigate('wallpaper', {
-                          data: post.img.data,
-                        })
-                      }>
-                      <ImageLoad
-                        style={{
-                          width: 380,
-                          height: 450,
-                          marginLeft: 10,
-                          marginTop: 50,
-                          marginBottom: 20,
-                          borderRadius: 15,
-                          borderWidth: 0.2,
-                          borderColor: 'white',
-                        }}
-                        borderWidth={0.2}
-                        borderRadius={15}
-                        loadingStyle={{size: 'large', color: 'blue'}}
-                        source={{
-                          uri: url,
-                        }}
-                      />
-                    </TouchableOpacity>
+                  <View
+                    key={post._id}
+                    style={{
+                      flex: 1,
+                      flexDirection: 'row',
+                      backgroundColor: '#121212',
+                      justifyContent: 'center',
+                      marginBottom: 20,
+                    }}>
+                    <View
+                      style={{
+                        marginTop: 40,
+                        width: 330,
+                        height: 450,
+                      }}>
+                      <TouchableOpacity
+                        onPress={() =>
+                          this.props.navigation.navigate('wallpaper', {
+                            data: post.img.data,
+                          })
+                        }>
+                        <ImageLoad
+                          style={{
+                            width: 330,
+                            height: 450,
+                            borderRadius: 15,
+                            borderWidth: 0.2,
+                            borderColor: 'white',
+                          }}
+                          borderWidth={0.2}
+                          borderRadius={15}
+                          loadingStyle={{size: 'large', color: 'blue'}}
+                          source={{
+                            uri: url,
+                          }}
+                        />
+                      </TouchableOpacity>
+                    </View>
                   </View>
                 );
               })}

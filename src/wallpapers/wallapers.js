@@ -33,19 +33,30 @@ export default class wallapers extends Component {
   render() {
     var renderPage = index => {
       return (
-        <View key={index}>
-          <View>
-            <View style={styles.slide1}>
-              <ImageLoad
-                style={styles.pic}
-                borderRadius={15}
-                borderWidth={0.5}
-                loadingStyle={{size: 'large', color: 'blue'}}
-                source={{
-                  uri: `${this.state.data[index].img.data}`,
-                }}
-              />
-            </View>
+        <View
+          key={index}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <View style={styles.slide1}>
+            <ImageLoad
+              style={styles.pic}
+              borderRadius={15}
+              borderWidth={0.5}
+              loadingStyle={{size: 'large', color: 'blue'}}
+              source={{
+                uri: `${this.state.data[index].img.data}`,
+              }}
+            />
+          </View>
+
+          <View style={{width: 300}}>
             <TouchableOpacity
               onPress={() =>
                 this.props.navigation.navigate('wallpaper', {
@@ -55,10 +66,9 @@ export default class wallapers extends Component {
               style={{
                 backgroundColor: '#00b300',
                 alignItems: 'center',
-                marginLeft: 50,
-                marginRight: 55,
-                marginTop: 205,
+                width: 300,
                 borderRadius: 15,
+                marginTop: 10,
               }}>
               <Text
                 style={{
@@ -88,35 +98,32 @@ export default class wallapers extends Component {
     }
 
     return (
-      <Swiper
-        style={{backgroundColor: '#121212'}}
-        paginationLeft={''}
-        paginationRight={''}
-        smoothTransition
-        loop
-        dragDownToBack
-        dragY
-        showPagination={false}>
-        {pages}
-      </Swiper>
+      <View
+        style={{
+          backgroundColor: '#121212',
+          flex: 1,
+        }}>
+        <Swiper
+          style={{backgroundColor: '#121212'}}
+          paginationLeft={''}
+          paginationRight={''}
+          smoothTransition={true}
+          loop
+          dragDownToBack
+          dragY
+          showPagination={false}>
+          {pages}
+        </Swiper>
+      </View>
     );
   }
 }
 const styles = StyleSheet.create({
   slide1: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 420,
+    height: 500,
     width: 300,
-    marginLeft: 55,
-    marginTop: 350,
   },
   slide2: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 50,
     height: 420,
     width: 300,
   },

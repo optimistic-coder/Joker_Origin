@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
-import {View, Text, Image, Stylesheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  Stylesheet,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import ImageLoad from 'react-native-image-placeholder';
 import '../../android/app/src/main/assets/fonts/Poppins-Medium.ttf';
 import RNFetchBlob from 'rn-fetch-blob';
 import {PermissionsAndroid} from 'react-native';
+
 var granted;
 async function requestStoragePermission() {
   try {
@@ -67,67 +75,88 @@ export default class wallpaper extends Component {
     };
 
     return (
-      <View style={{backgroundColor: '#121212'}}>
-        <ImageLoad
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: '#121212',
+          alignItems: 'center',
+          flexDirection: 'column',
+        }}>
+        <View
           style={{
-            height: 490,
-            width: 380,
-            marginLeft: 10,
-            marginTop: 90,
-            borderWidth: 0.5,
-            borderRadius: 20,
-            borderColor: 'white',
-          }}
-          borderRadius={20}
-          borderWidth={0.5}
-          loadingStyle={{size: 'large', color: 'blue'}}
-          source={{
-            uri: image,
-          }}
-        />
-        {granted === PermissionsAndroid.RESULTS.GRANTED ? (
-          <TouchableOpacity
-            onPress={() => download()}
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <View
             style={{
-              backgroundColor: '#00b300',
-              alignItems: 'center',
-              marginLeft: 10,
-              width: 380,
-              marginTop: 35,
-              borderRadius: 19,
-              marginBottom: 300,
+              marginTop: 50,
+              height: 490,
+              width: 300,
             }}>
-            <Text
+            <ImageLoad
               style={{
-                color: 'white',
-                padding: 10,
-                fontFamily: 'Poppins-Medium',
-              }}>
-              Download
-            </Text>
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity
-            onPress={() => requestStoragePermission()}
-            style={{
-              backgroundColor: '#00b300',
-              alignItems: 'center',
-              marginLeft: 10,
-              width: 380,
-              marginTop: 35,
-              borderRadius: 19,
-              marginBottom: 300,
-            }}>
-            <Text
-              style={{
-                color: 'white',
-                padding: 10,
-                fontFamily: 'Poppins-Medium',
-              }}>
-              Download
-            </Text>
-          </TouchableOpacity>
-        )}
+                height: 490,
+                width: 300,
+                borderColor: 'white',
+              }}
+              borderRadius={20}
+              borderWidth={0.5}
+              loadingStyle={{size: 'large', color: 'blue'}}
+              source={{
+                uri: image,
+              }}
+            />
+          </View>
+
+          {granted === PermissionsAndroid.RESULTS.GRANTED ? (
+            <View style={{marginTop: 20}}>
+              <TouchableOpacity
+                onPress={() => download()}
+                style={{
+                  height: 40,
+                  width: 300,
+                  backgroundColor: '#00b300',
+                  alignItems: 'center',
+                  borderRadius: 19,
+                }}>
+                <Text
+                  style={{
+                    color: 'white',
+                    padding: 10,
+                    fontFamily: 'Poppins-Medium',
+                  }}>
+                  Download
+                </Text>
+              </TouchableOpacity>
+            </View>
+          ) : (
+            <View style={{marginTop: 20}}>
+              <TouchableOpacity
+                onPress={() => requestStoragePermission()}
+                style={{
+                  height: 40,
+                  width: 300,
+                  backgroundColor: '#00b300',
+                  alignItems: 'center',
+                  borderRadius: 19,
+                }}>
+                <Text
+                  style={{
+                    color: 'white',
+                    padding: 10,
+                    fontFamily: 'Poppins-Medium',
+                  }}>
+                  Download
+                </Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        </View>
       </View>
     );
   }

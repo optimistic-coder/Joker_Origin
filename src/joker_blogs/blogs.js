@@ -28,71 +28,73 @@ class blogs extends Component {
   };
   render() {
     return (
-      <View>
+      <View style={{flex: 1}}>
         {this.state.loading ? (
           <View>
             <Loading />
           </View>
         ) : (
-          <ScrollView>
-            <View style={{backgroundColor: '#121212'}}>
-              {this.state.data.map(post => {
-                return (
-                  <View key={post._id}>
-                    <TouchableOpacity
-                      style={{marginBottom: 20}}
-                      onPress={() => {
-                        YouTubeStandaloneAndroid.playVideo({
-                          apiKey: 'AIzaSyCiQQ-uXfl1vDn5fKJdPiTzta1GXxEtxAk', // Your YouTube Developer API Key
-                          videoId: `${post.video}`, // YouTube video ID
-                          autoplay: true, // Autoplay the video
-                          startTime: 120, // Starting point of video (in seconds)
-                        })
-                          .then(() => console.log('Standalone Player Exited'))
-                          .catch(errorMessage => console.error(errorMessage));
-                      }}>
-                      <View
-                        style={{
-                          flexDirection: 'row',
-                          backgroundColor: '#212121',
-                          marginLeft: 20,
-                          marginTop: 40,
-                          borderRadius: 15,
-                          marginRight: 20,
+          <View
+            style={{
+              flex: 1,
+              backgroundColor: '#121212',
+              alignItems: 'center',
+              flexDirection: 'column',
+            }}>
+            <ScrollView>
+              <View style={{backgroundColor: '#121212'}}>
+                {this.state.data.map(post => {
+                  return (
+                    <View key={post._id} style={{marginTop: 30}}>
+                      <TouchableOpacity
+                        style={{marginBottom: 20}}
+                        onPress={() => {
+                          YouTubeStandaloneAndroid.playVideo({
+                            apiKey: 'AIzaSyCiQQ-uXfl1vDn5fKJdPiTzta1GXxEtxAk', // Your YouTube Developer API Key
+                            videoId: `${post.video}`, // YouTube video ID
+                            autoplay: true, // Autoplay the video
+                            startTime: 120, // Starting point of video (in seconds)
+                          })
+                            .then(() => console.log('Standalone Player Exited'))
+                            .catch(errorMessage => console.error(errorMessage));
                         }}>
-                        <Image
-                          style={{
-                            marginLeft: 15,
-                            height: 100,
-                            width: 100,
-                            marginTop: 15,
-                            borderRadius: 15,
-                          }}
-                          source={whats}
-                        />
                         <View
                           style={{
-                            marginLeft: 15,
-                            flexDirection: 'column',
-                            width: 200,
+                            flexDirection: 'row',
+                            width: 350,
+                            height: 140,
+                            backgroundColor: '#212121',
+                            borderRadius: 15,
                           }}>
-                          <Text
-                            style={{
-                              fontSize: 19,
-                              fontFamily: 'Poppins-Bold',
-                              color: 'white',
-                              marginTop: 25,
-                            }}>
-                            {post.name}
-                          </Text>
+                          <View style={{height: 140, width: 120}}>
+                            <Image
+                              style={{
+                                height: 140,
+                                width: 120,
+                                borderRadius: 15,
+                              }}
+                              source={whats}
+                            />
+                          </View>
+                          <View
+                            style={{marginTop: 7, paddingLeft: 15, width: 200}}>
+                            <Text
+                              style={{
+                                fontSize: 19,
+                                fontFamily: 'Poppins-Bold',
+                                color: 'white',
+                              }}>
+                              {post.name}
+                            </Text>
+                          </View>
                         </View>
-                      </View>
-                    </TouchableOpacity>
-                  </View>
-                );
-              })}
-            </View>
-          </ScrollView>
+                      </TouchableOpacity>
+                    </View>
+                  );
+                })}
+              </View>
+            </ScrollView>
+          </View>
         )}
       </View>
     );

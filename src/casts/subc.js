@@ -21,185 +21,216 @@ class subc extends Component {
     headerTintColor: 'white',
   };
   render() {
-    // name:post.cast.name,
-    //   img: post.cast.img,
-    //     description: post.cast.description,
-    //       born: post.cast.born,
-    //         shows: post.cast.shows,
-    //           awards: post.cast.awards,
-    //             video: post.cast.video,
+    // video: post.cast.video,
     return (
       <ScrollView>
-        <View style={{backgroundColor: '#121212'}}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignContent: 'center',
+            alignItems: 'center',
+            backgroundColor: '#121212',
+          }}>
           <View
             style={{
+              flex: 1,
               flexDirection: 'column',
-              marginLeft: 14,
               marginTop: 50,
-              marginRight: 22,
+
+              width: 340,
               backgroundColor: '#212121',
               borderRadius: 10,
             }}>
-            <ImageLoad
-              style={{
-                height: 200,
-                width: 375,
-                borderRadius: 10,
-              }}
-              // source={joaquin}
-              borderRadius={10}
-              loadingStyle={{size: 'large', color: 'blue'}}
-              source={{
-                uri: this.props.navigation.getParam('img'),
-              }}
-            />
             <View>
+              <ImageLoad
+                style={{
+                  height: 200,
+                  width: 340,
+                  borderRadius: 10,
+                }}
+                // source={joaquin}
+                borderRadius={10}
+                loadingStyle={{size: 'large', color: 'blue'}}
+                source={{
+                  uri: this.props.navigation.getParam('img'),
+                }}
+              />
+            </View>
+
+            <View style={{marginLeft: 15, marginTop: 5}}>
               <Text
                 style={{
                   fontFamily: 'Poppins-Medium',
                   color: 'white',
-                  marginTop: 5,
                   fontSize: 16,
-                  marginLeft: 5,
                 }}>
-                Name :
+                Name
               </Text>
+            </View>
+            <View
+              style={{
+                marginLeft: 27,
+                marginBottom: 7,
+                marginTop: 5,
+              }}>
               <Text
                 style={{
                   fontFamily: 'Poppins-Medium',
                   color: 'white',
-                  marginTop: 5,
+
                   fontSize: 13,
-                  marginRight: 22,
-                  marginLeft: 17,
-                  marginBottom: 7,
                 }}>
                 {this.props.navigation.getParam('name')}
               </Text>
+            </View>
+            <View style={{marginLeft: 15, marginTop: 5}}>
               <Text
                 style={{
                   fontFamily: 'Poppins-Medium',
                   color: 'white',
-                  marginTop: 5,
+
                   fontSize: 16,
-                  marginLeft: 5,
                 }}>
-                Description :
+                Description
               </Text>
+            </View>
+            <View
+              style={{
+                marginLeft: 27,
+                marginBottom: 7,
+                marginTop: 5,
+              }}>
               <Text
                 style={{
                   fontFamily: 'Poppins-Medium',
                   color: 'white',
-                  marginTop: 5,
+
                   fontSize: 13,
-                  marginRight: 22,
-                  marginLeft: 17,
-                  marginBottom: 7,
                 }}>
                 {this.props.navigation.getParam('description')}
               </Text>
+            </View>
+            <View style={{marginLeft: 15, marginTop: 5}}>
               <Text
                 style={{
                   fontFamily: 'Poppins-Medium',
                   color: 'white',
-                  marginTop: 5,
+
                   fontSize: 16,
-                  marginLeft: 5,
                 }}>
-                Born :
+                Born
               </Text>
+            </View>
+            <View
+              style={{
+                marginLeft: 27,
+                marginBottom: 7,
+                marginTop: 5,
+              }}>
               <Text
                 style={{
                   fontFamily: 'Poppins-Medium',
                   color: 'white',
-                  marginTop: 5,
+
                   fontSize: 13,
-                  marginRight: 22,
-                  marginLeft: 17,
-                  marginBottom: 7,
                 }}>
                 {this.props.navigation.getParam('born')}
               </Text>
+            </View>
 
+            <View style={{marginTop: 5, marginLeft: 15}}>
               <Text
                 style={{
                   fontFamily: 'Poppins-Medium',
                   color: 'white',
-                  marginTop: 5,
                   fontSize: 16,
-                  marginLeft: 5,
                 }}>
-                TV shows :
+                TV shows
               </Text>
+            </View>
+            <View
+              style={{
+                marginLeft: 27,
+                marginBottom: 7,
+                marginTop: 5,
+              }}>
               <Text
                 style={{
                   fontFamily: 'Poppins-Medium',
                   color: 'white',
-                  marginTop: 5,
+
                   fontSize: 13,
-                  marginRight: 22,
-                  marginLeft: 17,
-                  marginBottom: 7,
                 }}>
                 {this.props.navigation.getParam('shows')}
               </Text>
+            </View>
 
+            <View style={{marginLeft: 15, marginTop: 5}}>
               <Text
                 style={{
                   fontFamily: 'Poppins-Medium',
                   color: 'white',
-                  marginTop: 5,
+
                   fontSize: 16,
-                  marginLeft: 5,
                 }}>
-                Awards :
+                Awards
               </Text>
+            </View>
+            <View
+              style={{
+                marginLeft: 27,
+                marginBottom: 7,
+                marginTop: 5,
+              }}>
               <Text
                 style={{
                   fontFamily: 'Poppins-Medium',
                   color: 'white',
-                  marginTop: 5,
+
                   fontSize: 13,
-                  marginRight: 22,
-                  marginLeft: 17,
-                  marginBottom: 7,
                 }}>
                 {this.props.navigation.getParam('awards')}
               </Text>
+            </View>
+            <View
+              style={{
+                marginLeft: 27,
+                marginBottom: 7,
+                marginTop: 5,
+              }}>
               <Text
                 style={{
                   fontFamily: 'Poppins-SemiBold',
                   color: 'white',
-                  marginTop: 5,
+
                   fontSize: 15,
                   marginRight: 22,
-                  marginLeft: 17,
-                  marginBottom: 7,
                 }}>
                 If you are interested about this charchter you should watch this
                 Press the Button{' '}
               </Text>
-              <View
-                style={{
-                  marginTop: 40,
-                  marginLeft: 15,
-                  marginRight: 15,
-                  marginBottom: 20,
-                }}>
-                <Button
-                  title="Press Me"
-                  onPress={() => {
-                    YouTubeStandaloneAndroid.playVideo({
-                      apiKey: 'AIzaSyCiQQ-uXfl1vDn5fKJdPiTzta1GXxEtxAk', // Your YouTube Developer API Key
-                      videoId: `${this.props.navigation.getParam('video')}`, // YouTube video ID
-                      autoplay: true, // Autoplay the video
-                      startTime: 120, // Starting point of video (in seconds)
-                    })
-                      .then(() => console.log('Standalone Player Exited'))
-                      .catch(errorMessage => console.error(errorMessage));
-                  }}
-                />
-              </View>
+            </View>
+            <View
+              style={{
+                marginTop: 40,
+                marginLeft: 15,
+                marginRight: 15,
+                marginBottom: 20,
+              }}>
+              <Button
+                title="Watch"
+                onPress={() => {
+                  YouTubeStandaloneAndroid.playVideo({
+                    apiKey: 'AIzaSyCiQQ-uXfl1vDn5fKJdPiTzta1GXxEtxAk', // Your YouTube Developer API Key
+                    videoId: `${this.props.navigation.getParam('video')}`, // YouTube video ID
+                    autoplay: true, // Autoplay the video
+                    startTime: 120, // Starting point of video (in seconds)
+                  })
+                    .then(() => console.log('Standalone Player Exited'))
+                    .catch(errorMessage => console.error(errorMessage));
+                }}
+              />
             </View>
           </View>
         </View>
