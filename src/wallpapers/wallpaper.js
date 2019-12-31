@@ -6,6 +6,7 @@ import {
   Stylesheet,
   TouchableOpacity,
   ScrollView,
+  StatusBar,
 } from 'react-native';
 import ImageLoad from 'react-native-image-placeholder';
 import '../../android/app/src/main/assets/fonts/Poppins-Medium.ttf';
@@ -82,6 +83,7 @@ export default class wallpaper extends Component {
           alignItems: 'center',
           flexDirection: 'column',
         }}>
+        <StatusBar backgroundColor="#121212" />
         <View
           style={{
             position: 'absolute',
@@ -96,12 +98,13 @@ export default class wallpaper extends Component {
             style={{
               marginTop: 50,
               height: 490,
-              width: 300,
+              width: 380,
             }}>
             <ImageLoad
               style={{
+                resize: 'cover',
                 height: 490,
-                width: 300,
+                width: 380,
                 borderColor: 'white',
               }}
               borderRadius={20}
@@ -119,7 +122,7 @@ export default class wallpaper extends Component {
                 onPress={() => download()}
                 style={{
                   height: 40,
-                  width: 300,
+                  width: 350,
                   backgroundColor: '#00b300',
                   alignItems: 'center',
                   borderRadius: 19,
@@ -140,7 +143,7 @@ export default class wallpaper extends Component {
                 onPress={() => requestStoragePermission()}
                 style={{
                   height: 40,
-                  width: 300,
+                  width: 350,
                   backgroundColor: '#00b300',
                   alignItems: 'center',
                   borderRadius: 19,

@@ -7,6 +7,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   Image,
+  StatusBar,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import wallpaper from './img/wallpaper.jpg';
@@ -30,6 +31,7 @@ class Home extends Component {
   render() {
     return (
       <ScrollView>
+        <StatusBar backgroundColor="#121212" />
         <View style={{backgroundColor: '#121212'}}>
           <Text
             style={{

@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {View, Text, ScrollView, StyleSheet, Button} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  StatusBar,
+} from 'react-native';
 
 import '../../android/app/src/main/assets/fonts/Poppins-Medium.ttf';
 import '../../android/app/src/main/assets/fonts/Poppins-SemiBold.ttf';
@@ -7,6 +14,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {YouTubeStandaloneAndroid} from 'react-native-youtube';
 import Loading from '../Loading';
 import ImageLoad from 'react-native-image-placeholder';
+
 class Movo extends Component {
   constructor(props) {
     super(props);
@@ -37,6 +45,7 @@ class Movo extends Component {
           </View>
         ) : (
           <View style={{backgroundColor: '#121212'}}>
+            <StatusBar backgroundColor="#121212" />
             <ScrollView>
               {this.state.data.map(post => {
                 return (
@@ -232,19 +241,25 @@ class Movo extends Component {
                       </View>
                       <View
                         style={{
-                          marginTop: 40,
-                          marginLeft: 15,
-                          marginRight: 15,
-                          marginBottom: 27,
+                          marginTop: 20,
+
+                          marginBottom: 20,
+                          marginLeft: 10,
                         }}>
-                        <Button
-                          title="Watch trailer"
+                        <TouchableOpacity
+                          style={{
+                            backgroundColor: '#00b300',
+                            borderRadius: 15,
+                            width: 315,
+
+                            alignItems: 'center',
+                          }}
                           onPress={() => {
                             YouTubeStandaloneAndroid.playVideo({
                               apiKey: 'AIzaSyCiQQ-uXfl1vDn5fKJdPiTzta1GXxEtxAk', // Your YouTube Developer API Key
                               videoId: `${post.movie.video}`, // YouTube video ID
                               autoplay: true, // Autoplay the video
-                              startTime: 120, // Starting point of video (in seconds)
+                              startTime: 0, // Starting point of video (in seconds)
                             })
                               .then(() =>
                                 console.log('Standalone Player Exited'),
@@ -252,8 +267,16 @@ class Movo extends Component {
                               .catch(errorMessage =>
                                 console.error(errorMessage),
                               );
-                          }}
-                        />
+                          }}>
+                          <Text
+                            style={{
+                              color: 'white',
+                              padding: 10,
+                              fontFamily: 'Poppins-Medium',
+                            }}>
+                            Watch Trailer
+                          </Text>
+                        </TouchableOpacity>
                       </View>
                     </View>
                   </View>

@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  StatusBar,
+} from 'react-native';
 import ImageLoad from 'react-native-image-placeholder';
 import Loading from '../Loading';
 export default class quotes extends Component {
@@ -32,6 +38,7 @@ export default class quotes extends Component {
           </View>
         ) : (
           <ScrollView>
+            <StatusBar backgroundColor="#121212" />
             <View style={{backgroundColor: '#121212'}}>
               {this.state.data.map(post => {
                 var url = post.img.data;
@@ -48,7 +55,7 @@ export default class quotes extends Component {
                     <View
                       style={{
                         marginTop: 40,
-                        width: 330,
+                        width: 350,
                         height: 450,
                       }}>
                       <TouchableOpacity
@@ -59,7 +66,8 @@ export default class quotes extends Component {
                         }>
                         <ImageLoad
                           style={{
-                            width: 330,
+                            resizeMode: 'cover',
+                            width: 350,
                             height: 450,
                             borderRadius: 15,
                             borderWidth: 0.2,

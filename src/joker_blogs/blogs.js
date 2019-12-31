@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, Image, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+  StatusBar,
+} from 'react-native';
 import '../../android/app/src/main/assets/fonts/Poppins-Regular.ttf';
 import '../../android/app/src/main/assets/fonts/Poppins-Bold.ttf';
 import whats from '../img/whats.jpg';
@@ -20,7 +27,7 @@ class blogs extends Component {
       .catch(err => console.log(err));
   }
   static navigationOptions = {
-    title: 'joker blogs videos',
+    title: 'Joker blogs videos',
     headerStyle: {
       backgroundColor: '#121212',
     },
@@ -41,6 +48,7 @@ class blogs extends Component {
               alignItems: 'center',
               flexDirection: 'column',
             }}>
+            <StatusBar backgroundColor="#121212" />
             <ScrollView>
               <View style={{backgroundColor: '#121212'}}>
                 {this.state.data.map(post => {
@@ -53,7 +61,7 @@ class blogs extends Component {
                             apiKey: 'AIzaSyCiQQ-uXfl1vDn5fKJdPiTzta1GXxEtxAk', // Your YouTube Developer API Key
                             videoId: `${post.video}`, // YouTube video ID
                             autoplay: true, // Autoplay the video
-                            startTime: 120, // Starting point of video (in seconds)
+                            startTime: 0, // Starting point of video (in seconds)
                           })
                             .then(() => console.log('Standalone Player Exited'))
                             .catch(errorMessage => console.error(errorMessage));
@@ -77,10 +85,14 @@ class blogs extends Component {
                             />
                           </View>
                           <View
-                            style={{marginTop: 7, paddingLeft: 15, width: 200}}>
+                            style={{
+                              marginTop: 10,
+                              paddingLeft: 13,
+                              width: 200,
+                            }}>
                             <Text
                               style={{
-                                fontSize: 19,
+                                fontSize: 15,
                                 fontFamily: 'Poppins-Bold',
                                 color: 'white',
                               }}>

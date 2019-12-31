@@ -4,9 +4,8 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
-  Image,
   StyleSheet,
-  Button,
+  StatusBar,
 } from 'react-native';
 import '../../android/app/src/main/assets/fonts/Poppins-Medium.ttf';
 import '../../android/app/src/main/assets/fonts/Poppins-SemiBold.ttf';
@@ -24,6 +23,7 @@ class subc extends Component {
     // video: post.cast.video,
     return (
       <ScrollView>
+        <StatusBar backgroundColor="#121212" />
         <View
           style={{
             flex: 1,
@@ -213,24 +213,36 @@ class subc extends Component {
             </View>
             <View
               style={{
-                marginTop: 40,
-                marginLeft: 15,
-                marginRight: 15,
+                alignItems: 'center',
                 marginBottom: 20,
               }}>
-              <Button
-                title="Watch"
+              <TouchableOpacity
+                style={{
+                  backgroundColor: '#00b300',
+                  borderRadius: 15,
+                  width: 310,
+
+                  alignItems: 'center',
+                }}
                 onPress={() => {
                   YouTubeStandaloneAndroid.playVideo({
                     apiKey: 'AIzaSyCiQQ-uXfl1vDn5fKJdPiTzta1GXxEtxAk', // Your YouTube Developer API Key
                     videoId: `${this.props.navigation.getParam('video')}`, // YouTube video ID
                     autoplay: true, // Autoplay the video
-                    startTime: 120, // Starting point of video (in seconds)
+                    startTime: 0, // Starting point of video (in seconds)
                   })
                     .then(() => console.log('Standalone Player Exited'))
                     .catch(errorMessage => console.error(errorMessage));
-                }}
-              />
+                }}>
+                <Text
+                  style={{
+                    color: 'white',
+                    padding: 10,
+                    fontFamily: 'Poppins-Medium',
+                  }}>
+                  Watch
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>

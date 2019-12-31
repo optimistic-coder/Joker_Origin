@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  StatusBar,
+} from 'react-native';
 import Swiper from 'react-native-swiper-animated';
 import Loadiing from '../Loading';
 
@@ -103,6 +109,7 @@ export default class wallapers extends Component {
           backgroundColor: '#121212',
           flex: 1,
         }}>
+        <StatusBar backgroundColor="#121212" />
         <Swiper
           style={{backgroundColor: '#121212'}}
           paginationLeft={''}

@@ -1,22 +1,22 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-var multer = require("multer");
+var multer = require('multer');
 var upload = multer();
-var fs = require("fs");
-const passport = require("passport");
-const cast = require("../schema/cast");
-var multiparty = require("connect-multiparty"),
+var fs = require('fs');
+const passport = require('passport');
+const cast = require('../schema/cast');
+var multiparty = require('connect-multiparty'),
   multipartyMiddleware = multiparty();
-const AWS = require("aws-sdk");
+const AWS = require('aws-sdk');
 const s3 = new AWS.S3({
-  accessKeyId: "AKIAICTB4CZMI4FU45RQ",
-  secretAccessKey: "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"
+  accessKeyId: 'AWS_KEY',
+  secretAccessKey: 'AWS_ACCESS_KEY',
 });
 router
-  .route("/upload-cast")
+  .route('/upload-cast')
   .post(
     multipartyMiddleware,
-    passport.authenticate("jwt", { session: false }),
+    passport.authenticate('jwt', {session: false}),
     (req, res) => {
       var file = req.files.file;
       fs.readFile(file.path, function(err, data) {
@@ -27,9 +27,9 @@ router
         var url;
 
         const params = {
-          Bucket: "castinfo", // pass your bucket name
+          Bucket: 'castinfo', // pass your bucket name
           Key: req.files.file.originalFilename, // file will be saved as testBucket/contacts.csv
-          Body: data
+          Body: data,
         };
         s3.upload(params, function(s3Err, data) {
           if (s3Err) throw s3Err;
@@ -48,19 +48,19 @@ router
           }
         });
       });
-    }
+    },
   );
-router.get("/cast", (req, res) => {
+router.get('/cast', (req, res) => {
   cast.find().then(post => res.json(post));
 });
 //movies
-const movie = require("../schema/movie");
+const movie = require('../schema/movie');
 
 router
-  .route("/upload-movie")
+  .route('/upload-movie')
   .post(
     multipartyMiddleware,
-    passport.authenticate("jwt", { session: false }),
+    passport.authenticate('jwt', {session: false}),
     (req, res) => {
       var file = req.files.file;
       fs.readFile(file.path, function(err, data) {
@@ -71,9 +71,9 @@ router
         var url;
 
         const params = {
-          Bucket: "movie71", // pass your bucket name
+          Bucket: 'movie71', // pass your bucket name
           Key: req.files.file.originalFilename, // file will be saved as testBucket/contacts.csv
-          Body: data
+          Body: data,
         };
         s3.upload(params, function(s3Err, data) {
           if (s3Err) throw s3Err;
@@ -94,9 +94,9 @@ router
           }
         });
       });
-    }
+    },
   );
-router.get("/movies", (req, res) => {
+router.get('/movies', (req, res) => {
   movie.find().then(post => res.json(post));
 });
 module.exports = router;

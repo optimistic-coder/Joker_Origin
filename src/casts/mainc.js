@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
-import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  StatusBar,
+} from 'react-native';
 
 import ImageLoad from 'react-native-image-placeholder';
 import '../../android/app/src/main/assets/fonts/Poppins-Medium.ttf';
@@ -34,6 +40,7 @@ class mainc extends Component {
           </View>
         ) : (
           <ScrollView>
+            <StatusBar backgroundColor="#121212" />
             {this.state.data.map(post => {
               return (
                 <View key={post._id}>
