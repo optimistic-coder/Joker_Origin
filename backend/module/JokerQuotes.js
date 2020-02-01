@@ -1,21 +1,21 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-var fs = require("fs");
-var multer = require("multer");
+var fs = require('fs');
+var multer = require('multer');
 var upload = multer();
-const quotes = require("../schema/quotes");
-const passport = require("passport");
+const quotes = require('../schema/quotes');
+const passport = require('passport');
 
-var multiparty = require("connect-multiparty"),
+var multiparty = require('connect-multiparty'),
   multipartyMiddleware = multiparty();
-const AWS = require("aws-sdk");
+const AWS = require('aws-sdk');
 const s3 = new AWS.S3({
-  accessKeyId: "AKIAICTB4CZMI4FU45RQ",
-  secretAccessKey: "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"
+  accessKeyId: 'AWSACCESSID',
+  secretAccessKey: 'AWSACESSKEY',
 });
-router.route("/upload").post(
+router.route('/upload').post(
   multipartyMiddleware,
-  passport.authenticate("jwt", { session: false }),
+  passport.authenticate('jwt', {session: false}),
 
   (req, res) => {
     var file = req.files.file;
@@ -28,9 +28,9 @@ router.route("/upload").post(
       var url;
 
       const params = {
-        Bucket: "quotes71", // pass your bucket name
+        Bucket: 'quotes71', // pass your bucket name
         Key: req.files.file.originalFilename, // file will be saved as testBucket/contacts.csv
-        Body: data
+        Body: data,
       };
       s3.upload(params, function(s3Err, data) {
         if (s3Err) throw s3Err;
@@ -43,10 +43,10 @@ router.route("/upload").post(
         }
       });
     });
-  }
+  },
 );
 
-router.get("/quotes", (req, res) => {
+router.get('/quotes', (req, res) => {
   quotes.find().then(post => res.json(post));
 });
 module.exports = router;

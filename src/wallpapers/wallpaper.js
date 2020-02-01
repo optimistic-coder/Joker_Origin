@@ -36,7 +36,7 @@ requestStoragePermission();
 
 export default class wallpaper extends Component {
   static navigationOptions = {
-    title: 'wallpapaer',
+    title: 'Download',
     headerStyle: {
       backgroundColor: '#121212',
     },
